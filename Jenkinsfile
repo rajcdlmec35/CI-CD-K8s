@@ -28,7 +28,7 @@ node{
 
      //sh "ansible-playbook deploy.yml  --user=jenkins --extra-vars ImageName=${ImageName} --extra-vars imageTag=${imageTag} --extra-vars Namespace=${Namespace} -vvv"
       sh "echo 'Helm Install'"
-      sh "helm install --name=sayar-${Namespace}  --namespace=${Namespace} ansible/sayarapp --set image.repository=${ImageName} --set image.tag=${imageTag} --set namespace=${Namespace}"
+      sh "/usr/local/bin/helm install --name=sayar-${Namespace}  --namespace=${Namespace} ansible/sayarapp --set image.repository=${ImageName} --set image.tag=${imageTag} --set namespace=${Namespace}"
     }
      } catch (err) {
       currentBuild.result = 'FAILURE'
